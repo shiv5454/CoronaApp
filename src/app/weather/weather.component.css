@@ -1,0 +1,15 @@
+td{
+    margin: 2px 2px 2px 2px;
+    color:blue;
+    padding: 8px;
+}
+
+thead{
+    color: green;
+    font-size: large;
+    font-weight: bold;
+}
+
+span{
+    color:red;
+}

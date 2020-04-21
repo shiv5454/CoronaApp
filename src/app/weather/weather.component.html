@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="text-center my-4">Search for Country:</h3>
+      <form
+        [formGroup]="countrySearchForm"
+        (ngSubmit)="getCoronaListByCountries(countrySearchForm.value)"
+      >
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            id="country"
+            aria-describedby="country"
+            placeholder="Please input a Location"
+            formControlName="country"
+          />
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success btn-md">
+            Search for the Corona cases in Countries
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+    <div class="col-md-6" *ngIf="this.resFlag">
+      <h3 class="text-center my-4">Corona Details:  <span>{{this.coronaCases[0].Country}}</span></h3>
+        <table>
+          <thead>
+            <tr>
+              <td>Country Code</td>
+              <td>Latitude</td>
+              <td>Longitude</td>
+              <td>Confirmed</td>
+              <td>Deaths</td>
+              <td>Recovered</td>
+              <td>Alive</td>
+              <td>Date</td>
+            </tr>
+            
+          </thead>
+          <tbody>
+            <tr *ngFor="let case of this.coronaCases">
+              <td>{{case.CountryCode}}</td>
+              <td>{{case.Lat}}</td>
+              <td>{{case.Lon}}</td>
+              <td>{{case.Confirmed}}</td>
+              <td>{{case.Deaths}}</td>
+              <td>{{case.Recovered}}</td>
+              <td>{{case.Alive}}</td>
+              <td>{{case.Date | date }}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+
